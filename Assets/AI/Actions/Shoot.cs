@@ -21,12 +21,11 @@ public class Shoot : RAINAction
 		_sightedPlayer = ai.WorkingMemory.GetItem<GameObject>("sightedPlayer");
 		if(_sightedPlayer != null)
 		{
-			_weaponScript._Target = _sightedPlayer;
+			_weaponScript._Target = _sightedPlayer.transform;
 			//Debug.DrawRay ( ai.Body.transform.position, 
 			_weaponScript.Fire ();
-	        return ActionResult.SUCCESS;
 		}
-		return ActionResult.FAILURE;
+		return ActionResult.SUCCESS;
     }
 
     public override void Stop(RAIN.Core.AI ai)
